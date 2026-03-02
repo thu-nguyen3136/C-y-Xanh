@@ -1,0 +1,800 @@
+/* =======================================================
+   GOOGLE ADS SERVICE - SMS VIETNAM (THEME: RED & GREEN)
+   ======================================================= */
+
+/* --- 1. CẤU HÌNH MÀU SẮC (COLOR PALETTE) --- */
+:root {
+    /* Xanh lá đậm (Chủ đạo cho Tiêu đề & Nền chính) */
+    --sms-green: #0a4f25;       
+    --sms-green-dark: #053316;  
+
+    /* Đỏ đậm (Điểm nhấn cho Nút bấm & Ưu đãi) */
+    --sms-red: #c62828;         
+    --sms-red-hover: #b71c1c;
+
+    /* Vàng (Chi tiết phụ) */
+    --sms-yellow: #fdd835;      
+
+    /* Màu chữ & Nền */
+    --text-main: #333333;
+    --text-light: #666666;
+    --bg-light: #f4f8f5;        /* Nền xanh xám rất nhạt */
+    --white: #ffffff;
+
+    /* Hiệu ứng */
+    --shadow-card: 0 10px 30px rgba(0,0,0,0.05); 
+    --gradient-hero: linear-gradient(135deg, var(--sms-green) 0%, var(--sms-green-dark) 100%);
+    --gradient-offer: linear-gradient(135deg, var(--sms-red) 0%, #8e0000 100%);
+}
+
+
+
+.sms-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    position: relative; 
+}
+.sms-section { padding: 80px 0; }
+.bg-gray { background-color: var(--bg-light); }
+
+/* --- TYPOGRAPHY (TIÊU ĐỀ XANH LÁ ĐẬM) --- */
+.section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+/* Quan trọng: Đổi màu tiêu đề thành XANH LÁ ĐẬM */
+.section-title { 
+    font-size: 36px; 
+    font-weight: 800; 
+    color: var(--sms-green); /* <--- XANH LÁ */
+    margin-bottom: 15px; 
+    position: relative; 
+    display: inline-block; 
+}
+
+/* Gạch chân màu đỏ để tạo sự liên kết 
+.section-title::after { 
+    content: ''; 
+    display: block; 
+    width: 60px; 
+    height: 4px; 
+    background: var(--sms-red); /* <--- ĐỎ 
+    margin: 10px auto 0; 
+    border-radius: 2px; 
+}*/
+
+.section-subtitle { font-size: 18px; color: var(--text-light); }
+
+/* --- 3. BUTTONS (NÚT BẤM ĐỎ ĐẬM) --- */
+.sms-btn { 
+    display: inline-block; 
+    padding: 14px 32px; 
+    font-weight: 700; 
+    border-radius: 50px; 
+    transition: all 0.3s ease; 
+    font-size: 16px; 
+    cursor: pointer; 
+    text-transform: uppercase;
+}
+
+/* Nút chính: Nền Đỏ - Chữ Trắng */
+.sms-btn-primary { 
+    background: var(--sms-red); 
+    color: var(--white); 
+    box-shadow: 0 4px 15px rgba(198, 40, 40, 0.3); 
+    border: none; 
+}
+
+.sms-btn-primary:hover { 
+    transform: translateY(-3px); 
+    background: var(--sms-red-hover); 
+    box-shadow: 0 8px 25px rgba(198, 40, 40, 0.5); 
+}
+
+/* Nút phụ (Outline): Viền Trắng (dùng trên nền tối) */
+.sms-btn-outline { 
+    border: 2px solid rgba(255,255,255,0.3); 
+    color: var(--white); 
+    margin-left: 10px; 
+    background: transparent; 
+}
+.sms-btn-outline:hover { 
+    background: var(--white); 
+    color: var(--sms-green); 
+    border-color: var(--white); 
+}
+
+/* Nút trắng (Dùng trên nền đỏ/xanh) */
+.sms-btn-white { 
+    background: var(--white); 
+    color: var(--sms-red); 
+    font-weight: 800; 
+    border: none; 
+}
+.sms-btn-white:hover { 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
+    transform: scale(1.05); 
+}
+
+
+
+
+
+/* --- SỬA LẠI SECTION ƯU ĐÃI (KHỚP CLASS HTML) --- */
+
+/* 1. Container bên ngoài */
+.sms-offer-section { 
+    padding: 50px 0; 
+    background-color: #fff; /* Nền trắng của trang để tách biệt */
+}
+
+/* 2. Hộp Ưu Đãi (Khối màu đỏ) */
+.sms-offer-box { 
+    /* Dùng màu ĐỎ ĐẬM Gradient để nổi bật trước khi xuống Footer XANH */
+    background: linear-gradient(135deg, #c62828 0%, #8e0000 100%); 
+    
+    border-radius: 20px; 
+    padding: 50px; 
+    color: #ffffff; /* Chữ trắng trên nền đỏ */
+    
+    /* Flexbox để căn chỉnh 2 bên (Text - Nút) */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 40px;
+    
+    /* Đổ bóng và Viền vàng để hợp tone với Footer */
+    box-shadow: 0 20px 40px rgba(142, 0, 0, 0.3);
+    border: 1px solid rgba(253, 216, 53, 0.3); 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Trang trí nền mờ (Pattern) */
+.sms-offer-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                      radial-gradient(circle at 80% 20%, rgba(253, 216, 53, 0.1) 0%, transparent 20%);
+    pointer-events: none;
+}
+
+/* 3. Các thành phần Text */
+.sms-offer-title {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.sms-price-tag {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: rgba(255,255,255,0.9);
+}
+
+.sms-price-tag span {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fdd835; /* Giá màu VÀNG KIM nổi bật trên nền đỏ */
+    display: block;
+    margin-top: 5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+
+
+
+/* --- Tinh chỉnh bố cục cho nội dung mới --- */
+
+/* 1. Chia tỉ lệ cột: Chữ 60% - Hình 40% */
+.sms-offer-content-col {
+    flex: 1.5; /* Chiếm phần lớn hơn */
+}
+
+.sms-offer-img-col {
+    flex: 1; /* Chiếm phần nhỏ hơn */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. Style cho hình ảnh ưu đãi */
+.sms-offer-img-col img {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border: 4px solid rgba(255,255,255,0.2); /* Viền mờ sang trọng */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 3. Style cho đoạn văn bản mô tả */
+.sms-offer-desc p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-align: justify; /* Căn đều 2 bên cho đẹp */
+}
+
+/* 4. Fix cho Mobile (Hình chồng lên hoặc xuống dưới text) */
+@media (max-width: 768px) {
+    .sms-offer-box {
+        flex-direction: column-reverse; /* Đảo hình lên trên text (hoặc để column bình thường) */
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .sms-offer-desc p {
+        text-align: center;
+    }
+    
+    .sms-offer-img-col {
+        width: 100%;
+    }
+}
+
+
+
+
+.google-steps-timeline {
+  background: #ffffff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Title */
+.timeline-title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 40px;
+  color: #f4c430;
+  font-weight: 600;
+}
+
+.timeline-title span {
+  color: var(--sms-red);
+}
+
+/* Timeline */
+.timeline-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 42px;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  background: #e6e6e6;
+  z-index: 1;
+}
+
+.timeline-step {
+  position: relative;
+  z-index: 2;
+  padding: 0 5px;
+}
+
+.step-circle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: #c4161c;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(196, 22, 28, 0.35);
+}
+
+.timeline-step h3 {
+  font-size: 18px;
+  color: #012a0f;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.timeline-step p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Commitment */
+.timeline-commitment {
+  margin-top: 50px;
+  background: #013022;
+  padding: 25px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.timeline-commitment p {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.timeline-commitment strong {
+  color: #f4c430;
+}
+
+/* Image */
+.timeline-image {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.timeline-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .timeline-wrapper {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .timeline-line {
+    display: none;
+  }
+
+  .timeline-step {
+    text-align: left;
+  }
+
+  .step-circle {
+    margin: 0 0 15px 0;
+  }
+}
+
+
+.google-benefits {
+  background: #f9fafc;
+  padding: 70px 0;
+  font-family: Arial, sans-serif;
+  padding-bottom: 50px;
+}
+
+/* Title */
+.benefits-title {
+  text-align: center;
+  font-size: 34px;
+  color: var(--sms-green-dark);
+  margin-bottom: 60px;
+  font-weight: 600;
+}
+
+.benefits-title span {
+  color: #c4161c;
+}
+
+/* Layout */
+.benefits-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Content 
+.benefit-item {
+  margin-bottom: 15px;
+}*/
+
+.benefit-item h3 {
+  font-size: 20px;
+  color: #0a2e5c;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.benefit-item h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 6px;
+  height: 18px;
+  background: #c4161c;
+  border-radius: 3px;
+}
+
+.benefit-item ul {
+  padding-left: 20px;
+}
+
+.benefit-item li {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+/* Image */
+.benefits-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .benefits-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-image {
+    order: -1;
+    text-align: center;
+  }
+}
+
+
+
+.google-ad-types {
+  background: #f9fafc;
+  padding: 80px 0;
+  font-family: Arial, sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 34px;
+  color: #031c01;
+  margin-bottom: 70px;
+  font-weight: 600;
+}
+
+/* Block */
+.ad-type {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ad-type.reverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.ad-type.reverse .ad-image {
+  order: 2;
+}
+
+/* Image */
+.ad-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Content */
+.ad-content h3 {
+  font-size: 22px;
+  color: #c4161c;
+  margin-bottom: 15px;
+}
+
+.ad-content p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.ad-content ul {
+  padding-left: 20px;
+}
+
+.ad-content li {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+
+
+.google-ad-types .section-title {
+  display: block !important;
+  width: 100%;
+  text-align: center !important;
+  margin: 0 auto 50px auto !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .ad-type,
+  .ad-type.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-type.reverse .ad-image {
+    order: 0;
+  }
+}
+
+
+
+
+.google-reach-customers {
+  background: linear-gradient(135deg, #01371e, #012011);
+  padding: 10px 0;
+}
+
+.reach-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* IMAGE */
+.reach-image {
+  display: flex;
+  justify-content: center;
+}
+
+.reach-image img {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;       /* GIỮ HÌNH VUÔNG */
+  object-fit: contain;      /* HIỆN FULL ẢNH */
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* TITLE */
+.reach-title {
+  font-size: 34px;
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.reach-title span {
+  color: #f4c430;
+}
+
+/* HIGHLIGHT */
+.reach-highlight-box {
+  background: rgba(255,255,255,0.08);
+  border-left: 5px solid #c4161c;
+  padding: 18px 22px;
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.reach-highlight-box strong {
+  color: #f4c430;
+}
+
+/* TEXT */
+.reach-content p {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: #eaeaea;
+  margin-bottom: 16px;
+}
+
+.reach-content strong {
+  color: #f4c430;
+}
+
+/* BUTTON */
+.reach-actions {
+  margin-top: 30px;
+}
+
+.reach-actions .sms-btn {
+  margin-right: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .reach-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .reach-image img {
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
+
+  .reach-highlight-box {
+    text-align: left;
+  }
+
+  .reach-actions .sms-btn {
+    display: inline-block;
+    margin: 8px 6px;
+  }
+}
+
+
+.ad-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.ad-content li {
+  display: flex;
+  align-items: flex-start;   /* icon + text cùng hàng */
+  gap: 10px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* ICON CHECK */
+.ad-content li::before {
+  content: "✔";
+  flex-shrink: 0;             /* KHÔNG bị co */
+  color: #2e7d32;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 2px;            /* canh nhẹ cho đẹp */
+}
+
+
+@media (max-width: 768px) {
+  .reach-content p {
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+}
+
+
+.sms-offer-title::after {
+  content: "ƯU ĐÃI GIỚI HẠN";
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 12px;
+  background: #fdd835;
+  color: #8e0000;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .google-steps-timeline {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .timeline-title {
+    margin-bottom: 15px;
+    font-size: 28px;
+  }
+}
+
+
+/* === FIX KHOẢNG TRẮNG DƯ TRÊN PAGE GOOGLE ADS === */
+
+/* Breadcrumb */
+.breadcrumb-section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Hero */
+.google-reach-customers {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+/* Benefits */
+.google-benefits {
+  padding-bottom: 40px;
+}
+
+/* Timeline */
+.google-steps-timeline {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.timeline-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+
+@media (max-width: 768px) {
+  .google-reach-customers {
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+
+  .google-steps-timeline {
+    padding-top: 10px;
+  }
+}
+
+
+/* === FIX KHOẢNG TRẮNG TRƯỚC SECTION LỢI ÍCH === */
+
+/* Section trước */
+.google-ad-types {
+  padding-bottom: 20px;
+}
+
+/* Section lợi ích */
+.google-benefits {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+/* Title lợi ích */
+.benefits-title {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .google-benefits {
+    padding-top: 25px;
+  }
+
+  .benefits-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+}
+
+
+/* ===== FIX KHOẢNG TRẮNG TRƯỚC BENEFITS (MOBILE) ===== */
+@media (max-width: 768px) {
+
+  /* Giảm đuôi section phía trên */
+  .google-ad-types {
+    padding-bottom: 10px !important;
+  }
+
+  /* Chống margin collapse */
+  .google-benefits .container {
+    padding-top: 1px;
+  }
+
+  /* Title benefits */
+  .benefits-title {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  /* Section benefits */
+  .google-benefits {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+}
